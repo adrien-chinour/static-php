@@ -1,0 +1,19 @@
+{% extends '_base.html.twig' %}
+
+{% block content %}
+    <main class="topic">
+        <h1>Projets</h1>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    {{ project.start | format_date(pattern='MMM Y', locale='fr') }} -
+                    <a href="{{ path('project', {'slug': project.slug}) }}">
+                        {{ project.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
+
+{% block title %}Projets | {{ parent() }}{% endblock %}

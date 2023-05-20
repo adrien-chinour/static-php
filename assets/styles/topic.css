@@ -1,0 +1,19 @@
+.topic ul {
+    list-style-type: none;
+    margin-bottom: 5rem;
+}
+
+.topic li {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+.topic a {
+    font-weight: bold;
+}
+
+.topic {
+    margin: 0 auto;
+    max-width: 50rem;
+}

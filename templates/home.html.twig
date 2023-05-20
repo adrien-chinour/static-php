@@ -1,0 +1,31 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Accueil | {{ parent() }}{% endblock %}
+
+{% block content %}
+    <main class="topic">
+        <h2><a href="{{ path('articles') }}">Articles</a></h2>
+        <ul>
+            {% for article in articles %}
+                <li>
+                    {{ article.createdAt | format_date('medium', locale='fr') }} -
+                    <a href="{{ path('article', {'slug': article.slug}) }}">
+                        {{ article.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2><a href="{{ path('projects') }}">Projets</a></h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    {{ project.start | format_date(pattern="MMM Y", locale='fr') }} -
+                    <a href="{{ path('project', {'slug': project.slug}) }}">
+                        {{ project.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}

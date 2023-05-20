@@ -1,0 +1,19 @@
+{% extends '_base.html.twig' %}
+
+{% block content %}
+    <main class="topic">
+        <h1>Articles</h1>
+        <ul>
+            {% for article in articles %}
+                <li>
+                    {{ article.createdAt | format_date('medium', locale='fr') }} -
+                    <a href="{{ path('article', {'slug': article.slug}) }}">
+                        {{ article.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
+
+{% block title %}Articles | {{ parent() }}{% endblock %}

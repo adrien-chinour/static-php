@@ -1,0 +1,23 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ article.title }}</h1>
+        <em>
+            {{ article.createdAt | date('d/m/Y') }} - {{ article.tags | join(' - ') }}
+        </em>
+        {{ article.content | raw }}
+    </article>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('content') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('content') }}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ project.title }}</h1>
+        {{ project.content | raw }}
+    </article>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('content') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('content') }}
+{% endblock %}
