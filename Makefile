@@ -21,9 +21,11 @@ dev-stop: # Stop dev server
 	symfony server:stop
 
 build: install # Static site generation.
+	php bin/console cache:clear --env=prod
 	mkdir -p static
-	php bin/console asset-map:compile
+	php bin/console asset-map:compile --env=prod
 	cp -r public/assets static/assets
+	cp -r public/images static/images
 	php bin/console site:generate --env=prod
 
 prod: build # Preview production site.
