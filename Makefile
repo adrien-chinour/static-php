@@ -4,13 +4,14 @@ help: # Show help for each of the Makefile recipes.
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 clean:
-	rm -rf public/build static/build
+	rm -rf public/assets static/assets
 
 install:
-	composer install && yarn install
+	composer install
 
 dev: install # Start dev server.
-	symfony run -d yarn encore dev --watch
+	rm -rf public/assets
+	php bin/console asset-map:compile
 	symfony server:start --no-tls -d
 
 log: # View dev server logs.
@@ -21,8 +22,8 @@ dev-stop: # Stop dev server
 
 build: install # Static site generation.
 	mkdir -p static
-	yarn encore production
-	cp -r public/build static/build
+	php bin/console asset-map:compile
+	cp -r public/assets static/assets
 	php bin/console site:generate --env=prod
 
 prod: build # Preview production site.

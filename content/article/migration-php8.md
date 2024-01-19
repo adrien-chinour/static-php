@@ -11,7 +11,7 @@ PHP 8 est sorti depuis maintenant quelques jours, j'avais suivi les changements 
 pour la première fois cette nouvelle version. <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/releases/8.0/en.php">PHP 8 Released !</a>
 
 <div style="text-align:center">
-    <img src="/build/images/migration-php8/cover.webp" width="1200px" height="800px" alt="Peluche PHP"/>
+    <img src="/images/migration-php8/cover.webp" width="1200px" height="800px" alt="Peluche PHP"/>
 </div>
 
 Pour tester cette version j'ai repris un projet que j'avais présenté précédemment : <a rel="noreferrer noopener" target="_blank" href="https://github.com/adrien-chinour/netflix-data">Netflix data</a>.

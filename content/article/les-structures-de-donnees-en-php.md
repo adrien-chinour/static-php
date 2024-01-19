@@ -10,7 +10,7 @@ Array, array ou array ? Oui c'est vrai que PHP n'est pas riche en structure de d
 Voyons ensemble un peu ce qu'il en est réellement. 😊
 
 <div style="text-align:center">
-  <img src="/build/images/les-structures-de-donnees-en-php/cover.webp" width="1000px" height="668px" alt="couverture" />
+  <img src="/images/les-structures-de-donnees-en-php/cover.webp" width="1000px" height="668px" alt="couverture" />
 </div>
 
 ## Les **array**

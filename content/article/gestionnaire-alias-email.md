@@ -14,7 +14,7 @@ alias unique à chaque service.
 Et je vais vous expliquer pourquoi vous devriez *peut être* aussi le faire.
 
 <div style="text-align:center">
-    <img src="/build/images/gestionnaire-alias-email/cover.webp"  width="512px" height="256px" alt="Pourquoi ?!"/>
+    <img src="/images/gestionnaire-alias-email/cover.webp"  width="512px" height="256px" alt="Pourquoi ?!"/>
 </div>
 
 ### 1. Pour éviter les SPAM

@@ -12,7 +12,7 @@ _Combien de temps vous avez passé sur Netflix ? Vous pouvez le savoir simplemen
 ses données._
 
 <div style="text-align:center">
-    <img src="/build/images/temps-passee-sur-netflix/cover.webp" width="750px" height="500px" alt="En détente devant Netflix"/>
+    <img src="/images/temps-passee-sur-netflix/cover.webp" width="750px" height="500px" alt="En détente devant Netflix"/>
 </div>
 
 Pour avoir ma réponse plutôt que de simplement prendre les données au format CSV et calculer ça moi-même,
