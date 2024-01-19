@@ -7,7 +7,7 @@ and a custom command to generate a static site. This site can be deployed fully 
 
 ## Usage
 
-Require `composer`, `php8.1` and `symfony-cli`.
+Require `composer`, `php8.2` and `symfony-cli`.
 
 ### Run dev server :
 
@@ -29,11 +29,3 @@ make build
 # Show production website
 make prod
 ```
-
-
-## Roadmap
-
-- [ ] View contents associated with a tag
-- [ ] Add PWA manifest
-- [ ] Add notification for new articles
-- [ ] Add command `make:content` to create a new content type
