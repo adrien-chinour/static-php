@@ -28,11 +28,6 @@ abstract class MarkdownParser implements ParserInterface, LoggerAwareInterface
         $this->serializer = new MarkdownHeadersSerializer();
     }
 
-    protected function setSerializer(SerializerInterface $serializer)
-    {
-        $this->serializer = $serializer;
-    }
-
     /**
      * @return T
      * @throws ContentParseException

@@ -6,6 +6,8 @@ namespace App\Core\Content\Accessor;
 
 use App\Content\ContentType;
 use App\Core\Content\Exception\ContentFileNotFoundException;
+use Exception;
+use SplFileInfo;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -14,6 +16,7 @@ use Symfony\Component\Finder\Finder;
 final class ContentAccessor implements ContentAccessorInterface
 {
     private const FILE_EXTENSION = '.md';
+    const CONTENT_DIR = '%s/content/%s/';
 
     public function __construct(
         private readonly string $projectDir
@@ -26,9 +29,9 @@ final class ContentAccessor implements ContentAccessorInterface
     public function access(ContentType $type, string $slug): string
     {
         try {
-            $file = sprintf('%s/content/%s/%s%s', $this->projectDir, $type->value, $slug, self::FILE_EXTENSION);
+            $file = sprintf(self::CONTENT_DIR . '%s%s', $this->projectDir, $type->value, $slug, self::FILE_EXTENSION);
             return file_get_contents($file);
-        } catch (\Exception) {
+        } catch (Exception) {
             throw new ContentFileNotFoundException($file);
         }
     }
@@ -40,7 +43,7 @@ final class ContentAccessor implements ContentAccessorInterface
     public function accessAll(ContentType $type): array
     {
         return array_map(
-            fn(\SplFileInfo $file) => $this->access($type, $file->getBasename(self::FILE_EXTENSION)),
+            fn (SplFileInfo $file) => $this->access($type, $file->getBasename(self::FILE_EXTENSION)),
             $this->getFiles($type)
         );
     }
@@ -48,17 +51,17 @@ final class ContentAccessor implements ContentAccessorInterface
     public function getSlugs(ContentType $type): array
     {
         return array_map(
-            fn(\SplFileInfo $file) => $file->getBasename(self::FILE_EXTENSION),
+            fn (SplFileInfo $file) => $file->getBasename(self::FILE_EXTENSION),
             $this->getFiles($type)
         );
     }
 
     /**
-     * @return \SplFileInfo[]
+     * @return SplFileInfo[]
      */
     protected function getFiles(ContentType $type): array
     {
-        ($finder = new Finder())->files()->in(sprintf('%s/content/%s/', $this->projectDir, $type->value));
+        ($finder = new Finder())->files()->in(sprintf(self::CONTENT_DIR, $this->projectDir, $type->value));
         if (!$finder->hasResults()) {
             return [];
         }

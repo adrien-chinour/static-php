@@ -15,11 +15,6 @@ final class ContentWriter
         $this->filesystem = new Filesystem();
     }
 
-    public function setFilesystem(Filesystem $filesystem): void
-    {
-        $this->filesystem = $filesystem;
-    }
-
     public function write(string $path, string $content): void
     {
         $this->filesystem->dumpFile(sprintf('%s%s', $this->outputDir, $path), $content);

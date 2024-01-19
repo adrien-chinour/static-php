@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/articles.html', name: 'articles', methods: ['GET'])]
-class ArticleListController extends AbstractController
+final class ArticleListController extends AbstractController
 {
     public function __construct(
         private readonly ArticleRepository $repository

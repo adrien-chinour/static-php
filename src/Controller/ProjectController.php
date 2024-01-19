@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/projet/{slug}.html', name: 'project', requirements: ['slug' => '^[a-zA-Z0-9\-]+$'], methods: ['GET'])]
-class ProjectController extends AbstractController
+FINAL class ProjectController extends AbstractController
 {
     public function __construct(
         private readonly ProjectRepository $repository

@@ -32,11 +32,9 @@ final class RouteDumper
     private function dumpContentPages(RouteCollection $routes, ContentWriter $writer): void
     {
         foreach (ContentType::cases() as $contentType) {
-            $slugs = $this->accessor->getSlugs($contentType);
-
             $route = $routes->get($contentType->value);
 
-            foreach ($slugs as $slug) {
+            foreach ($this->accessor->getSlugs($contentType) as $slug) {
                 $parameters = ['slug' => $slug];
                 $writer->write(
                     $this->router->generate($contentType->value, $parameters),
@@ -49,16 +47,11 @@ final class RouteDumper
     private function dumpStaticPages(RouteCollection $routes, ContentWriter $writer): void
     {
         foreach ($routes as $route) {
-            if (!$route instanceof Route) {
+            if (!($route instanceof Route) || !empty($route->getRequirements()) || $route->getPath() === '/') {
                 continue;
             }
 
-            if (empty($route->getRequirements())) {
-                if ($route->getPath() === '/') {
-                    continue;
-                }
-                $writer->write($route->getPath(), $this->resolve($route));
-            }
+            $writer->write($route->getPath(), $this->resolve($route));
         }
     }
 

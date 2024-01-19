@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/article/{slug}.html', name: 'article', requirements: ['slug' => '^[a-zA-Z0-9\-]+$'], methods: ['GET'])]
-class ArticleController extends AbstractController
+final class ArticleController extends AbstractController
 {
     public function __construct(
         private readonly ArticleRepository $repository
